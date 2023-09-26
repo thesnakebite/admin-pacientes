@@ -1,11 +1,9 @@
 <script setup>
     import { ref } from 'vue'
 
-    const nombre = ref('Max')
+    const nombre = ref('')
 
-    const leerNombre = (e) => {
-        nombre.value = e.target.value
-    }
+    
 </script>
 
 <template>
@@ -30,8 +28,8 @@
                        name=""
                        type="text"
                        placeholder="Nombre de la mascota"
-                       :value="nombre"
-                       @input="leerNombre"
+                       
+                       v-model="nombre"
                 />
             </div>
             <div class="mb-5">
