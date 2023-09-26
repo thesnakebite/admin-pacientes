@@ -1,7 +1,13 @@
 <script setup>
-    import { ref } from 'vue'
+    import { reactive } from 'vue'
 
-    const nombre = ref('')
+    const paciente = reactive({
+        nombre: '',
+        propietario: '',
+        email: '',
+        alta: '',
+        sintomas: '',
+    })
 
     
 </script>
@@ -17,7 +23,6 @@
 
         <form class="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
             <div class="mb-5">
-                {{ nombre }}
                 <label for="mascota" 
                        class="block text-gray"
                 >
@@ -28,8 +33,7 @@
                        name=""
                        type="text"
                        placeholder="Nombre de la mascota"
-                       
-                       v-model="nombre"
+                       v-model="paciente.nombre"
                 />
             </div>
             <div class="mb-5">
@@ -42,7 +46,8 @@
                        id="propietario"
                        name=""
                        type="text"
-                       placeholder="Nombre del propietario" 
+                       placeholder="Nombre del propietario"
+                       v-model="paciente.propietario"
                 />
             </div>
             <div class="mb-5">
@@ -55,7 +60,8 @@
                        id="email"
                        name=""
                        type="email"
-                       placeholder="E-mail del propietario" 
+                       placeholder="E-mail del propietario"
+                       v-model="paciente.email"
                 />
             </div>
             <div class="mb-5">
@@ -67,7 +73,8 @@
                 <input class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
                        id="alta"
                        name=""
-                       type="date" 
+                       type="date"
+                       v-model="paciente.alta"
                 />
             </div>
             <div class="mb-5">
@@ -79,6 +86,8 @@
                 <textarea class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md h-40"
                           id="sintomas"
                           name=""
+                          v-model="paciente.sintomas"
+
                 />
             </div>
 
