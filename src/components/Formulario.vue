@@ -25,7 +25,7 @@
         }
 
         emit('guardar-paciente')
-        alerta.mensaje = 'Paciente almacenado correctamente'
+        alerta.mensaje = 'Paciente Almacenado Correctamente'
         alerta.tipo = 'exito'
 
         setTimeout( () => {
