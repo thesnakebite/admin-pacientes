@@ -7,21 +7,25 @@
         mensaje: '',
     })
 
-    defineEmits([
+    const emit = defineEmits([
         'update:nombre',
         'update:propietario',
         'update:email',
         'update:alta',
-        'update:sintomas'
+        'update:sintomas',
+        'guardar-paciente'
     ])
 
     const validar = () => {
-        if(Object.values(props).includes(''))
+        if(Object.values(props).includes('')) {
             alerta.mensaje = 'Todos los campos son obligatorios'
             alerta.tipo = 'error'
 
             return
         }
+
+        emit('guardar-paciente')
+    }
     
     const props = defineProps({
         nombre: {
@@ -45,9 +49,6 @@
             required: true
         }
     })
-
-        console.log('Agregando...')
-
     
 </script>
 
