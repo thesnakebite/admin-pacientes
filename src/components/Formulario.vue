@@ -33,7 +33,7 @@
                 tipo: '',
                 mensaje: ''
             })
-        }, 3000)
+        }, 3500)
     }
     
     const props = defineProps({
@@ -70,9 +70,12 @@
             <span class="text-indigo-600 font-bold">Adminístralos</span>
         </p>
 
-        <Alerta v-if="alerta.mensaje" 
+        <transition name="alerta">
+            <Alerta 
+                v-if="alerta.mensaje" 
                 :alerta="alerta" 
-        />
+            />
+        </transition>
         <form class="bg-white shadow-md rounded-lg py-10 px-5 mb-10" 
               @submit.prevent="validar"
         >
@@ -160,5 +163,10 @@
 </template>
 
 <style scoped>
-
+    .alerta-enter-active, .alerta-leave-active {
+        transition: opacity 3s;
+    }
+    .alerta-enter, .alerta-leave-to {
+        opacity: 0;
+    }
 </style>
