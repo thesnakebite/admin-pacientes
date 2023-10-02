@@ -8,7 +8,7 @@
   const pacientes = ref([])
 
   const paciente = reactive({
-        id: null,
+        id: null,     
         nombre: '',
         propietario: '',
         email: '',
@@ -17,10 +17,18 @@
     })
 
   const guardarPaciente = () => {
-    pacientes.value.push({
-      ...paciente,
-      id: uid()
-    })
+    if(paciente.id) {
+      const { id } = paciente
+      const i = pacientes.value.findIndex((pacienteState) => pacienteState.id === id)
+      pacientes.value[i] = {...paciente}
+
+    } else {
+        pacientes.value.push({
+        ...paciente,
+        id: uid()
+      })
+    }
+    
 
     // Reiniciar el objeto
     // paciente.nombre= ''
@@ -35,7 +43,8 @@
       propietario: '',
       email: '',
       alta: '',
-      sintomas: ''
+      sintomas: '',
+      id: null
     })
   }
 
